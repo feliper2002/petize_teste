@@ -11,9 +11,8 @@ class GetUserDatasourceImpl implements GetUserDatasource {
   @override
   Future<Map<String, dynamic>> getUser(String user) async {
     const baseUrl = "https://api.github.com/users/";
-
     try {
-      final response = await client.get(Uri.https("$baseUrl$user"));
+      final response = await client.get(Uri.parse("$baseUrl$user"));
 
       Map<String, dynamic>? data;
 
