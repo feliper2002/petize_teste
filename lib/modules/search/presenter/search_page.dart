@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:petize_teste/modules/search/presenter/widgets/search_devs_title.dart';
-import 'package:petize_teste/modules/search/presenter/widgets/search_input.dart';
+import 'package:petize_teste/utils/global_widgets/search_devs_title.dart';
+import 'package:petize_teste/utils/global_widgets/search_button.dart';
+import 'package:petize_teste/utils/global_widgets/search_input.dart';
 import 'package:petize_teste/utils/themes/app_color.dart';
 
 class SearchPage extends StatefulWidget {
@@ -29,28 +30,31 @@ class _SearchPageState extends State<SearchPage> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SearchDevsTitle(size: size),
+          SearchDevsTitle(
+            fontSize: size.width * .056,
+            margin: EdgeInsets.only(
+                top: size.height * .39, bottom: size.height * .08),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SearchInput(controller: searchController, size: size),
-              TextButton(
+              SearchInput(
+                controller: searchController,
+                size: size,
+                borderColor: Colors.grey[200]!,
+                focusedColorBorder: AppColor.purple1,
+                iconColor: Colors.grey[200]!,
+                hintText: "Search",
+                hintStyle: TextStyle(fontSize: 18, color: Colors.grey[200]),
+              ),
+              SearchButton(
+                size: size,
                 onPressed: () {
                   if (searchController.text.isNotEmpty) {
                     Modular.to
                         .navigate("/result/", arguments: searchController.text);
                   }
                 },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(AppColor.purple1),
-                  fixedSize: MaterialStateProperty.all(
-                      Size(size.width * .12, size.height * .047)),
-                ),
-                child: const Text("Search",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18)),
               ),
             ],
           ),
