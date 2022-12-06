@@ -44,7 +44,7 @@ class UserModel extends User {
       'twitter_username': twitterUsername,
       'location': location,
       'blog': blog,
-      'siteAdmin': siteAdmin,
+      'site_admin': siteAdmin,
       'company': company,
       'email': email,
     };
@@ -58,7 +58,7 @@ class UserModel extends User {
       twitterUsername: map['twitter_username'] ?? '',
       location: map['location'] ?? '',
       blog: map['blog'] ?? '',
-      siteAdmin: map['site_admin'] ?? '',
+      siteAdmin: map['site_admin'] ?? false,
       company: map['company'] ?? '',
       email: map['email'] ?? '',
     );
@@ -68,4 +68,28 @@ class UserModel extends User {
 
   factory UserModel.fromJson(String source) =>
       UserModel.fromMap(json.decode(source));
+
+  UserModel copyWith({
+    String? login,
+    String? name,
+    String? bio,
+    String? twitterUsername,
+    String? location,
+    String? blog,
+    bool? siteAdmin,
+    String? company,
+    String? email,
+  }) {
+    return UserModel(
+      login: login ?? this.login,
+      name: name ?? this.name,
+      bio: bio ?? this.bio,
+      twitterUsername: twitterUsername ?? this.twitterUsername,
+      location: location ?? this.location,
+      blog: blog ?? this.blog,
+      siteAdmin: siteAdmin ?? this.siteAdmin,
+      company: company ?? this.company,
+      email: email ?? this.email,
+    );
+  }
 }
