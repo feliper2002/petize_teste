@@ -8,8 +8,17 @@ class ResultBloc extends Cubit<ResultState> {
   ResultBloc(this._getUserUsecase) : super(InitialResultState());
 
   getUser(String user) async {
-    final response = await _getUserUsecase.call(user);
+    final response = await _getUserUsecase(user);
 
-    emit(SuccessResultUserState(response));
+    emit(LoadingResultState());
+
+    response.fold(
+      (failure) {
+        emit(ErrorResultState());
+      },
+      (user) {
+        emit(SuccessResultUserState(user));
+      },
+    );
   }
 }

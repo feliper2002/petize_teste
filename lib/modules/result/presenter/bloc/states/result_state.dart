@@ -1,4 +1,4 @@
-import 'package:petize_teste/modules/result/domain/models/user_model.dart';
+import 'package:petize_teste/modules/result/domain/entities/user.dart';
 
 abstract class ResultState {}
 
@@ -9,7 +9,7 @@ class LoadingResultState extends ResultState {}
 class ErrorResultState extends ResultState {}
 
 class SuccessResultUserState extends ResultState {
-  final UserModel user;
+  final User user;
 
   SuccessResultUserState(this.user);
 }

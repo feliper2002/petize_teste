@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:petize_teste/modules/result/infra/datasource/get_user_datasource.dart';
+import 'package:petize_teste/modules/result/infra/errors/user_failure.dart';
 
 class GetUserDatasourceImpl implements GetUserDatasource {
   final Client client;
@@ -20,8 +21,10 @@ class GetUserDatasourceImpl implements GetUserDatasource {
         data = jsonDecode(response.body) as Map<String, dynamic>;
       }
       return data ?? {};
-    } on ClientException catch (_) {
-      throw Exception();
+    } on ClientException catch (e) {
+      throw UserDataServiceFailure(e.message);
+    } catch (e) {
+      throw UserDataServiceFailure(e.toString());
     }
   }
 }

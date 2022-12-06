@@ -1,6 +1,10 @@
+// ignore_for_file: overridden_fields, annotate_overrides
+
 import 'dart:convert';
 
-class UserModel {
+import 'package:petize_teste/modules/result/domain/entities/user.dart';
+
+class UserModel extends User {
   final String login;
   final String name;
   final String bio;
@@ -20,7 +24,17 @@ class UserModel {
     required this.siteAdmin,
     required this.company,
     required this.email,
-  });
+  }) : super(
+          login: login,
+          name: name,
+          bio: bio,
+          twitterUsername: twitterUsername,
+          location: location,
+          blog: blog,
+          siteAdmin: siteAdmin,
+          company: company,
+          email: email,
+        );
 
   Map<String, dynamic> toMap() {
     return {
