@@ -1,8 +1,10 @@
-import 'package:petize_teste/modules/result/domain/models/user_model.dart';
+import 'package:dartz/dartz.dart';
+import 'package:petize_teste/modules/result/domain/entities/user.dart';
 import 'package:petize_teste/modules/result/domain/repositories/get_user_repository.dart';
+import 'package:petize_teste/modules/result/infra/errors/user_failure.dart';
 
 abstract class GetUser {
-  Future<UserModel> call(String user);
+  Future<Either<UserFailure, User>> call(String user);
 }
 
 class GetUserImpl implements GetUser {
@@ -11,7 +13,12 @@ class GetUserImpl implements GetUser {
   GetUserImpl(this.repository);
 
   @override
-  Future<UserModel> call(String user) async {
-    return repository.getUser(user);
+  Future<Either<UserFailure, User>> call(String user) async {
+    if (user.isEmpty) {
+      return Left(
+          UserUsecaseFailure("O usuário do Github é um campo obrigatório!"));
+    }
+
+    return await repository.getUser(user);
   }
 }
