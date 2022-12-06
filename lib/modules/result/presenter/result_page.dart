@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:petize_teste/modules/result/presenter/bloc/result_bloc.dart';
+import 'package:petize_teste/modules/result/presenter/bloc/result_cubit.dart';
 import 'package:petize_teste/modules/result/presenter/bloc/states/result_state.dart';
 
 class ResultPage extends StatefulWidget {
