@@ -33,33 +33,21 @@ void main() {
         email: 'email');
   });
 
-  blocTest<ResultBloc, ResultState>(
-    "Should return User entity by parsing user string",
-    build: () {
-      when(() => repository.getUser("feliper2002"))
-          .thenAnswer((_) async => Right(fakeUser));
+  test("Should return User entity by parsing user string", () async {
+    when(() => repository.getUser("feliper2002"))
+        .thenAnswer((_) async => Right(fakeUser));
 
-      return ResultBloc(usecase);
-    },
-    act: (bloc) => bloc.getUser("feliper2002"),
-    expect: () => [
-      isA<LoadingResultState>(),
-      isA<SuccessResultUserState>(),
-    ],
-  );
+    final response = await usecase("feliper2002");
 
-  blocTest<ResultBloc, ResultState>(
-    "Should throw an UserUsecaseFailure if user string is empty",
-    build: () {
-      when(() => repository.getUser(""))
-          .thenThrow((_) async => Left(UserUsecaseFailure("")));
+    expect(response.fold(id, id), isA<User>());
+  });
 
-      return ResultBloc(usecase);
-    },
-    act: (bloc) => bloc.getUser(""),
-    expect: () => [
-      isA<LoadingResultState>(),
-      isA<ErrorResultState>(),
-    ],
-  );
+  test("Should throw an UserUsecaseFailure if user string is empty", () async {
+    when(() => repository.getUser(""))
+        .thenThrow((_) async => Left(UserUsecaseFailure("")));
+
+    final response = await usecase("");
+
+    expect(response.fold(id, id), isA<UserUsecaseFailure>());
+  });
 }
