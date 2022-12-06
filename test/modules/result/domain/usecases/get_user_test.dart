@@ -6,8 +6,6 @@ import 'package:petize_teste/modules/result/domain/entities/user.dart';
 import 'package:petize_teste/modules/result/domain/repositories/get_user_repository.dart';
 import 'package:petize_teste/modules/result/domain/usecases/get_user.dart';
 import 'package:petize_teste/modules/result/infra/errors/user_failure.dart';
-import 'package:petize_teste/modules/result/presenter/bloc/result_bloc.dart';
-import 'package:petize_teste/modules/result/presenter/bloc/states/result_state.dart';
 
 class GetUserRepositoryMock extends Mock implements GetUserRepository {}
 
