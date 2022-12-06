@@ -6,7 +6,8 @@ class UserModel {
   final String bio;
   final String twitterUsername;
   final String location;
-  final String siteAdmin;
+  final String blog;
+  final bool siteAdmin;
   final String company;
   final String email;
   UserModel({
@@ -15,6 +16,7 @@ class UserModel {
     required this.bio,
     required this.twitterUsername,
     required this.location,
+    required this.blog,
     required this.siteAdmin,
     required this.company,
     required this.email,
@@ -27,6 +29,7 @@ class UserModel {
       'bio': bio,
       'twitter_username': twitterUsername,
       'location': location,
+      'blog': blog,
       'siteAdmin': siteAdmin,
       'company': company,
       'email': email,
@@ -40,6 +43,7 @@ class UserModel {
       bio: map['bio'] ?? '',
       twitterUsername: map['twitter_username'] ?? '',
       location: map['location'] ?? '',
+      blog: map['blog'] ?? '',
       siteAdmin: map['site_admin'] ?? '',
       company: map['company'] ?? '',
       email: map['email'] ?? '',
