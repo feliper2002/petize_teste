@@ -1,5 +1,6 @@
 class User {
   final String login;
+  final String avatarUrl;
   final String name;
   final String bio;
   final String twitterUsername;
@@ -12,6 +13,7 @@ class User {
   final int followers;
   User({
     required this.login,
+    required this.avatarUrl,
     required this.name,
     required this.bio,
     required this.twitterUsername,
