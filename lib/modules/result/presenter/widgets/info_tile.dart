@@ -22,15 +22,14 @@ class InfoTile extends StatelessWidget {
           height: size.height * .027,
           width: size.width * .058,
         ),
+        SizedBox(width: size.width * .0267),
         GestureDetector(
           onTap: onTap as void Function()?,
-          child: Flexible(
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: size.width * .034,
-                color: AppColor.grey2,
-              ),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: size.width * .034,
+              color: AppColor.grey2,
             ),
           ),
         ),
