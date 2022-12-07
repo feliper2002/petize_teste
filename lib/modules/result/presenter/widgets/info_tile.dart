@@ -24,13 +24,11 @@ class InfoTile extends StatelessWidget {
         ),
         GestureDetector(
           onTap: onTap as void Function()?,
-          child: Flexible(
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: size.width * .034,
-                color: AppColor.grey2,
-              ),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: size.width * .034,
+              color: AppColor.grey2,
             ),
           ),
         ),

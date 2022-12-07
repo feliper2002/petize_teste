@@ -39,7 +39,6 @@ class _DevInfosState extends State<DevInfos> {
 
         if (state is SuccessResultUserState) {
           return Container(
-            height: widget.size.height * .35,
             padding: EdgeInsets.only(
               left: widget.size.width * .0388,
               top: widget.size.height * .027,
@@ -48,73 +47,71 @@ class _DevInfosState extends State<DevInfos> {
             decoration: BoxDecoration(
               color: AppColor.lightGrey2,
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        backgroundImage:
-                            Image.network(state.user.avatarUrl).image,
-                        radius: widget.size.width * .058,
-                      ),
-                      SizedBox(width: widget.size.width * .0388),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            state.user.name,
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                                color: AppColor.black1,
-                                fontSize: widget.size.width * .048,
-                                fontWeight: FontWeight.w700),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            "@${state.user.login}",
-                            style: TextStyle(
-                              fontSize: widget.size.width * .034,
-                              color: AppColor.grey3,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: widget.size.height * .019),
-                  Row(
-                    children: [
-                      InfoTile(
-                          size: widget.size,
-                          iconPath: 'assets/icons/follwers.png',
-                          title: '${state.user.followers} seguidores'),
-                      InfoTile(
-                          size: widget.size,
-                          iconPath: 'assets/icons/following.png',
-                          title: '${state.user.following} seguindo'),
-                    ],
-                  ),
-                  SizedBox(height: widget.size.height * .029),
-                  Text(
-                    state.user.bio,
-                    style: TextStyle(
-                      fontSize: widget.size.width * .0388,
-                      color: AppColor.grey2,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.blue,
+                      backgroundImage:
+                          Image.network(state.user.avatarUrl).image,
+                      radius: widget.size.width * .058,
                     ),
-                  ),
-                  SizedBox(height: widget.size.height * .028),
-                  SizedBox(
-                    width: widget.size.width,
-                    height: 100,
-                    child: InfoGrid(
-                      size: widget.size,
-                      user: state.user,
+                    SizedBox(width: widget.size.width * .0388),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          state.user.name,
+                          overflow: TextOverflow.clip,
+                          style: TextStyle(
+                              color: AppColor.black1,
+                              fontSize: widget.size.width * .048,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          "@${state.user.login}",
+                          style: TextStyle(
+                            fontSize: widget.size.width * .034,
+                            color: AppColor.grey3,
+                          ),
+                        ),
+                      ],
                     ),
+                  ],
+                ),
+                SizedBox(height: widget.size.height * .019),
+                Row(
+                  children: [
+                    InfoTile(
+                        size: widget.size,
+                        iconPath: 'assets/icons/follwers.png',
+                        title: '${state.user.followers} seguidores'),
+                    InfoTile(
+                        size: widget.size,
+                        iconPath: 'assets/icons/following.png',
+                        title: '${state.user.following} seguindo'),
+                  ],
+                ),
+                SizedBox(height: widget.size.height * .029),
+                Text(
+                  state.user.bio,
+                  style: TextStyle(
+                    fontSize: widget.size.width * .0388,
+                    color: AppColor.grey2,
                   ),
-                ],
-              ),
+                ),
+                SizedBox(height: widget.size.height * .028),
+                SizedBox(
+                  width: widget.size.width,
+                  height: 100,
+                  child: InfoGrid(
+                    size: widget.size,
+                    user: state.user,
+                  ),
+                ),
+              ],
             ),
           );
         }
