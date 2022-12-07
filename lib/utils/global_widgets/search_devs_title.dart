@@ -18,6 +18,7 @@ class SearchDevsTitle extends StatelessWidget {
             color: AppColor.titleBlue,
             fontWeight: FontWeight.w700,
             fontSize: fontSize,
+            fontFamily: 'Nunito',
           ),
           children: [
             TextSpan(
