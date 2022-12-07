@@ -26,12 +26,6 @@ class _ResultPageState extends State<ResultPage> {
   final searchController = TextEditingController();
 
   @override
-  void initState() {
-    controller.getUser(widget.user);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -73,22 +67,7 @@ class _ResultPageState extends State<ResultPage> {
             children: [
               Column(
                 children: [
-                  BlocBuilder(
-                    bloc: controller,
-                    builder: (context, state) {
-                      if (state is LoadingResultState) {
-                        return const Center(
-                          child: CircularProgressIndicator(
-                              color: AppColor.purple1),
-                        );
-                      }
-
-                      if (state is SuccessResultUserState) {
-                        return const DevInfos();
-                      }
-                      return const SizedBox.shrink();
-                    },
-                  ),
+                  DevInfos(size: size, user: widget.user),
                   const ContactButton(),
                 ],
               ),

@@ -14,6 +14,8 @@ class UserModel extends User {
   final bool siteAdmin;
   final String company;
   final String email;
+  final int following;
+  final int followers;
   UserModel({
     required this.login,
     required this.name,
@@ -24,6 +26,8 @@ class UserModel extends User {
     required this.siteAdmin,
     required this.company,
     required this.email,
+    required this.following,
+    required this.followers,
   }) : super(
           login: login,
           name: name,
@@ -34,6 +38,8 @@ class UserModel extends User {
           siteAdmin: siteAdmin,
           company: company,
           email: email,
+          following: following,
+          followers: followers,
         );
 
   Map<String, dynamic> toMap() {
@@ -47,6 +53,8 @@ class UserModel extends User {
       'site_admin': siteAdmin,
       'company': company,
       'email': email,
+      'following': following,
+      'followers': followers,
     };
   }
 
@@ -61,6 +69,8 @@ class UserModel extends User {
       siteAdmin: map['site_admin'] ?? false,
       company: map['company'] ?? '',
       email: map['email'] ?? '',
+      following: map['following'] ?? '',
+      followers: map['followers'] ?? '',
     );
   }
 
@@ -79,6 +89,8 @@ class UserModel extends User {
     bool? siteAdmin,
     String? company,
     String? email,
+    int? following,
+    int? followers,
   }) {
     return UserModel(
       login: login ?? this.login,
@@ -90,6 +102,8 @@ class UserModel extends User {
       siteAdmin: siteAdmin ?? this.siteAdmin,
       company: company ?? this.company,
       email: email ?? this.email,
+      following: following ?? this.following,
+      followers: followers ?? this.followers,
     );
   }
 }
