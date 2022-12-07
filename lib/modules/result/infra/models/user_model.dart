@@ -6,6 +6,7 @@ import 'package:petize_teste/modules/result/domain/entities/user.dart';
 
 class UserModel extends User {
   final String login;
+  final String avatarUrl;
   final String name;
   final String bio;
   final String twitterUsername;
@@ -18,6 +19,7 @@ class UserModel extends User {
   final int followers;
   UserModel({
     required this.login,
+    required this.avatarUrl,
     required this.name,
     required this.bio,
     required this.twitterUsername,
@@ -30,6 +32,7 @@ class UserModel extends User {
     required this.followers,
   }) : super(
           login: login,
+          avatarUrl: avatarUrl,
           name: name,
           bio: bio,
           twitterUsername: twitterUsername,
@@ -45,6 +48,7 @@ class UserModel extends User {
   Map<String, dynamic> toMap() {
     return {
       'login': login,
+      'avatar_url': avatarUrl,
       'name': name,
       'bio': bio,
       'twitter_username': twitterUsername,
@@ -61,6 +65,7 @@ class UserModel extends User {
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       login: map['login'] ?? '',
+      avatarUrl: map['avatar_url'] ?? '',
       name: map['name'] ?? '',
       bio: map['bio'] ?? '',
       twitterUsername: map['twitter_username'] ?? '',
@@ -81,6 +86,7 @@ class UserModel extends User {
 
   UserModel copyWith({
     String? login,
+    String? avatarUrl,
     String? name,
     String? bio,
     String? twitterUsername,
@@ -94,6 +100,7 @@ class UserModel extends User {
   }) {
     return UserModel(
       login: login ?? this.login,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
       name: name ?? this.name,
       bio: bio ?? this.bio,
       twitterUsername: twitterUsername ?? this.twitterUsername,

@@ -24,6 +24,7 @@ void main() {
     getRepositories = GetRepositoriesMock();
     fakeUser = User(
       login: 'login',
+      avatarUrl: 'login',
       name: 'name',
       bio: 'bio',
       twitterUsername: 'twitterUsername',

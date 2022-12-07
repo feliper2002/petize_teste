@@ -20,6 +20,7 @@ void main() {
 
     fakeUser = User(
       login: 'login',
+      avatarUrl: 'login',
       name: 'name',
       bio: 'bio',
       twitterUsername: 'twitterUsername',
