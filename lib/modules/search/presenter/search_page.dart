@@ -33,11 +33,12 @@ class _SearchPageState extends State<SearchPage> {
               SearchInput(
                 controller: searchController,
                 size: size,
-                borderColor: Colors.grey[200]!,
+                borderColor: AppColor.darkGrey,
                 focusedColorBorder: AppColor.purple1,
-                iconColor: Colors.grey[200]!,
+                iconColor: AppColor.darkGrey,
                 hintText: "Search",
-                hintStyle: TextStyle(fontSize: 18, color: Colors.grey[200]),
+                hintStyle:
+                    const TextStyle(fontSize: 18, color: AppColor.darkGrey),
                 onFieldSubmitted: (value) async {
                   await Modular.to
                       .pushNamed("/result/", arguments: searchController.text);

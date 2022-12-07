@@ -88,6 +88,7 @@ class _DevInfosState extends State<DevInfos> {
                         size: widget.size,
                         iconPath: 'assets/icons/follwers.png',
                         title: '${state.user.followers} seguidores'),
+                    SizedBox(width: widget.size.width * .046),
                     InfoTile(
                         size: widget.size,
                         iconPath: 'assets/icons/following.png',
@@ -105,7 +106,7 @@ class _DevInfosState extends State<DevInfos> {
                 SizedBox(height: widget.size.height * .028),
                 SizedBox(
                   width: widget.size.width,
-                  height: 100,
+                  height: widget.size.height * .0672,
                   child: InfoGrid(
                     size: widget.size,
                     user: state.user,

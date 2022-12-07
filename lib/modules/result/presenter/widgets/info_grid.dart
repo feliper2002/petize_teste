@@ -11,14 +11,13 @@ class InfoGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 1,
-        crossAxisSpacing: 0.3,
-        childAspectRatio: 5.5,
-      ),
+    return Wrap(
+      direction: Axis.vertical,
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      runAlignment: WrapAlignment.center,
+      runSpacing: size.height * .0224,
+      spacing: size.width * .01,
       children: [
         Visibility(
           visible: user.company.isNotEmpty,
