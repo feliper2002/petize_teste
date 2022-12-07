@@ -32,9 +32,10 @@ class _DevRepositoriesState extends State<DevRepositories> {
               return Container(
                 margin: EdgeInsets.only(left: widget.size.width * .022),
                 color: Colors.white,
+                height: widget.size.height * .7,
                 width: widget.size.width * .627,
                 child: ListView.builder(
-                  itemCount: state.repositories.length,
+                  itemCount: 2,
                   itemBuilder: (context, index) {
                     final repo = state.repositories[index];
                     return SizedBox(

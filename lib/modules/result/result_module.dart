@@ -22,7 +22,7 @@ class ResultModule extends Module {
             i.get<GetRepositoriesDatasourceImpl>())),
         Bind(
             (i) => GetRepositoriesImpl(i.get<GetRepositoriesRepositoryImpl>())),
-        Bind((i) =>
+        Bind.factory((i) =>
             ResultBloc(i.get<GetUserImpl>(), i.get<GetRepositoriesImpl>())),
       ];
 
