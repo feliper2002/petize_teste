@@ -40,13 +40,18 @@ class _ResultPageState extends State<ResultPage> {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SearchDevsTitle(
-                      fontSize: constraints.minHeight * .36,
-                      margin: EdgeInsets.only(
-                          top: constraints.minHeight * .25,
-                          bottom: constraints.minHeight * .25,
-                          left: constraints.minWidth * .078,
-                          right: constraints.minWidth * .082),
+                    GestureDetector(
+                      onTap: () {
+                        Modular.to.navigate("/");
+                      },
+                      child: SearchDevsTitle(
+                        fontSize: constraints.minHeight * .36,
+                        margin: EdgeInsets.only(
+                            top: constraints.minHeight * .25,
+                            bottom: constraints.minHeight * .25,
+                            left: constraints.minWidth * .078,
+                            right: constraints.minWidth * .082),
+                      ),
                     ),
                     SearchInput(
                       controller: searchController,
