@@ -65,6 +65,10 @@ class _ResultPageState extends State<ResultPage> {
                       hintText: "Search",
                       hintStyle:
                           TextStyle(fontSize: 18, color: Colors.grey[200]),
+                      onFieldSubmitted: () async {
+                        Modular.to.navigate("/result/",
+                            arguments: searchController.text);
+                      },
                     ),
                   ],
                 );
