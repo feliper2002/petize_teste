@@ -89,6 +89,13 @@ class _DevRepositoriesState extends State<DevRepositories> {
                                     height: widget.size.width * .01666,
                                     width: widget.size.width * .01666,
                                   ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    "${repo.stargazersCount}",
+                                    style: TextStyle(
+                                        fontSize: widget.size.width * .011,
+                                        color: AppColor.grey2),
+                                  ),
                                   const SizedBox(width: 8),
                                   Text(
                                     "•",
@@ -97,12 +104,6 @@ class _DevRepositoriesState extends State<DevRepositories> {
                                         color: AppColor.grey2),
                                   ),
                                   const SizedBox(width: 8),
-                                  Text(
-                                    "${repo.stargazersCount}",
-                                    style: TextStyle(
-                                        fontSize: widget.size.width * .011,
-                                        color: AppColor.grey2),
-                                  ),
                                 ],
                               ),
                               Text(
