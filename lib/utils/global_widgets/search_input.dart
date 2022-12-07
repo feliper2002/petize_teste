@@ -9,17 +9,19 @@ class SearchInput extends StatelessWidget {
   final TextStyle? hintStyle;
   final double borderRadius;
   final Color? focusedColorBorder;
+  final Function()? onFieldSubmitted;
   const SearchInput({
-    super.key,
-    required this.controller,
+    Key? key,
     required this.size,
+    required this.controller,
     required this.borderColor,
     required this.iconColor,
     this.hintText,
-    this.borderRadius = 6,
     this.hintStyle,
+    this.borderRadius = 6,
     this.focusedColorBorder,
-  });
+    this.onFieldSubmitted,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class SearchInput extends StatelessWidget {
       width: size.width * .41,
       child: TextFormField(
         controller: controller,
+        onEditingComplete: onFieldSubmitted,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: hintStyle,
