@@ -33,42 +33,35 @@ class _DevRepositoriesState extends State<DevRepositories> {
           if (state is SuccessResultReposState) {
             if (state.repositories.isNotEmpty) {
               return Container(
-                margin: EdgeInsets.only(left: widget.size.width * .022),
-                padding: EdgeInsets.symmetric(
-                  vertical: widget.size.height * .023,
-                  horizontal: widget.size.width * .01666,
-                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius:
                       BorderRadius.circular(widget.size.width * .00278),
                 ),
-                height: widget.size.height * .78,
-                width: widget.size.width * .627,
+                height: widget.size.height * .5,
                 child: ListView.separated(
                   itemCount: state.repositories.length,
                   separatorBuilder: (context, index) {
-                    return LayoutBuilder(builder: (context, cnst) {
-                      return Divider(
-                        thickness: 1,
-                        indent: cnst.maxWidth * .027,
-                        endIndent: cnst.maxWidth * .027,
-                        color: AppColor.lightGrey,
-                      );
-                    });
+                    return Divider(
+                      thickness: 1,
+                      indent: widget.size.width * .027,
+                      endIndent: widget.size.width * .027,
+                      color: AppColor.lightGrey,
+                    );
                   },
                   itemBuilder: (context, index) {
                     final repo = state.repositories[index];
                     return Container(
                       margin: EdgeInsets.symmetric(
-                          vertical: widget.size.height * .0156),
+                          vertical: widget.size.height * .0179,
+                          horizontal: widget.size.width * .0388),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             repo.name,
                             style: TextStyle(
-                                fontSize: widget.size.width * .0138,
+                                fontSize: widget.size.width * .04854,
                                 color: AppColor.black1,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -76,7 +69,7 @@ class _DevRepositoriesState extends State<DevRepositories> {
                           Text(
                             repo.description,
                             style: TextStyle(
-                                fontSize: widget.size.width * .011,
+                                fontSize: widget.size.width * .0388,
                                 color: AppColor.grey2),
                           ),
                           SizedBox(height: widget.size.height * .0156),
@@ -86,21 +79,21 @@ class _DevRepositoriesState extends State<DevRepositories> {
                                 children: [
                                   Image.asset(
                                     "assets/icons/favorite.png",
-                                    height: widget.size.width * .01666,
-                                    width: widget.size.width * .01666,
+                                    height: widget.size.height * .027,
+                                    width: widget.size.width * .058,
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
                                     "${repo.stargazersCount}",
                                     style: TextStyle(
-                                        fontSize: widget.size.width * .011,
+                                        fontSize: widget.size.width * .034,
                                         color: AppColor.grey2),
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
                                     "•",
                                     style: TextStyle(
-                                        fontSize: widget.size.width * .011,
+                                        fontSize: widget.size.width * .034,
                                         color: AppColor.grey2),
                                   ),
                                   const SizedBox(width: 8),
@@ -109,7 +102,7 @@ class _DevRepositoriesState extends State<DevRepositories> {
                               Text(
                                 "Atualizado ${timeago.format(DateTime.parse(repo.updatedAt), locale: 'ptbr')}",
                                 style: TextStyle(
-                                    fontSize: widget.size.width * .011,
+                                    fontSize: widget.size.width * .034,
                                     color: AppColor.grey2),
                               ),
                             ],

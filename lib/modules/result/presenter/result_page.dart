@@ -32,68 +32,18 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: size.height * .078,
-            width: size.width,
-            color: Colors.white,
-            child: LayoutBuilder(
-              builder: (_, constraints) {
-                return Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Modular.to.navigate("/");
-                      },
-                      child: SearchDevsTitle(
-                        fontSize: constraints.minHeight * .36,
-                        margin: EdgeInsets.only(
-                            top: constraints.minHeight * .25,
-                            bottom: constraints.minHeight * .25,
-                            left: constraints.minWidth * .078,
-                            right: constraints.minWidth * .082),
-                      ),
-                    ),
-                    SearchInput(
-                      controller: searchController,
-                      size: size,
-                      borderColor: AppColor.purple1,
-                      focusedColorBorder: AppColor.purple1,
-                      iconColor: Colors.grey[200]!,
-                      hintText: "Search",
-                      hintStyle:
-                          TextStyle(fontSize: 18, color: Colors.grey[200]),
-                      onFieldSubmitted: () async {
-                        Modular.to.navigate("/result/",
-                            arguments: searchController.text);
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-                top: size.height * .085, left: size.width * .078),
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    DevInfos(size: size, user: widget.user),
-                    ContactButton(
-                      size: size,
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-                DevRepositories(size: size, user: widget.user),
-              ],
-            ),
-          ),
-        ],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: AppColor.titleBlue),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            DevInfos(size: size, user: widget.user),
+            DevRepositories(size: size, user: widget.user),
+          ],
+        ),
       ),
     );
   }

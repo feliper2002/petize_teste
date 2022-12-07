@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:petize_teste/utils/global_widgets/search_devs_title.dart';
-import 'package:petize_teste/utils/global_widgets/search_button.dart';
 import 'package:petize_teste/utils/global_widgets/search_input.dart';
 import 'package:petize_teste/utils/themes/app_color.dart';
 
@@ -19,19 +18,12 @@ class _SearchPageState extends State<SearchPage> {
 
     final searchController = TextEditingController();
 
-    @override
-    void initState() {
-      searchController.addListener(() {
-        setState(() {});
-      });
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
           SearchDevsTitle(
-            fontSize: size.width * .056,
+            fontSize: size.width * .121,
             margin: EdgeInsets.only(
                 top: size.height * .39, bottom: size.height * .08),
           ),
@@ -46,14 +38,9 @@ class _SearchPageState extends State<SearchPage> {
                 iconColor: Colors.grey[200]!,
                 hintText: "Search",
                 hintStyle: TextStyle(fontSize: 18, color: Colors.grey[200]),
-              ),
-              SearchButton(
-                size: size,
-                onPressed: () {
-                  if (searchController.text.isNotEmpty) {
-                    Modular.to
-                        .navigate("/result/", arguments: searchController.text);
-                  }
+                onFieldSubmitted: (value) async {
+                  await Modular.to
+                      .pushNamed("/result/", arguments: searchController.text);
                 },
               ),
             ],
