@@ -83,6 +83,7 @@ class _DevInfosState extends State<DevInfos> {
                       ),
                     ],
                   ),
+                  SizedBox(height: widget.size.height * .019),
                   Row(
                     children: [
                       InfoTile(
@@ -95,7 +96,7 @@ class _DevInfosState extends State<DevInfos> {
                           title: '${state.user.following} seguindo'),
                     ],
                   ),
-                  SizedBox(height: widget.size.height * .0344),
+                  SizedBox(height: widget.size.height * .029),
                   Text(
                     state.user.bio,
                     style: TextStyle(
@@ -103,6 +104,7 @@ class _DevInfosState extends State<DevInfos> {
                       color: AppColor.grey2,
                     ),
                   ),
+                  SizedBox(height: widget.size.height * .028),
                   SizedBox(
                     width: widget.size.width,
                     height: 100,
