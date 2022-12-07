@@ -1,3 +1,4 @@
+import 'package:petize_teste/modules/result/domain/entities/git_repository.dart';
 import 'package:petize_teste/modules/result/domain/entities/user.dart';
 
 abstract class ResultState {}
@@ -14,4 +15,8 @@ class SuccessResultUserState extends ResultState {
   SuccessResultUserState(this.user);
 }
 
-class SuccessResultReposState extends ResultState {}
+class SuccessResultReposState extends ResultState {
+  final List<GitRepository> repositories;
+
+  SuccessResultReposState(this.repositories);
+}

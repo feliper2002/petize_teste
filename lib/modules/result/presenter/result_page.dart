@@ -82,7 +82,7 @@ class _ResultPageState extends State<ResultPage> {
                     ),
                   ],
                 ),
-                const DevRepositories(),
+                DevRepositories(size: size, user: widget.user),
               ],
             ),
           ),
