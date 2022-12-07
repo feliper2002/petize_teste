@@ -18,7 +18,7 @@ class _DevRepositoriesState extends State<DevRepositories> {
 
   @override
   void initState() {
-    // controller.getRepositories(widget.user);
+    controller.getRepositories(widget.user);
     super.initState();
   }
 

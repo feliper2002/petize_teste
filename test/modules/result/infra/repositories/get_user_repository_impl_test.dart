@@ -16,7 +16,7 @@ void main() {
     repository = GetUserRepositoryImpl(datasource);
   });
 
-  test('test name', () async {
+  test('Should return an User by retreiving data from Datasource', () async {
     when(() => datasource.getUser("feliper2002"))
         .thenAnswer((_) async => Future.value(_map));
 
