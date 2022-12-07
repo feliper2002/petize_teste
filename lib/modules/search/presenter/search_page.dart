@@ -49,10 +49,10 @@ class _SearchPageState extends State<SearchPage> {
               ),
               SearchButton(
                 size: size,
-                onPressed: () {
+                onPressed: () async {
                   if (searchController.text.isNotEmpty) {
-                    Modular.to
-                        .navigate("/result/", arguments: searchController.text);
+                    await Modular.to.pushNamed("/result/",
+                        arguments: searchController.text);
                   }
                 },
               ),

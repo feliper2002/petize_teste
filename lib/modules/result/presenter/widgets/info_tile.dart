@@ -15,30 +15,26 @@ class InfoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        children: [
-          Image.asset(
-            iconPath,
-            height: size.height * .0516,
-            width: size.width * .085,
-          ),
-          const SizedBox(width: 8),
-          Flexible(
-            child: GestureDetector(
-              onTap: onTap as void Function()?,
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: size.width * .05,
-                  color: AppColor.grey2,
-                ),
+    return Row(
+      children: [
+        Image.asset(
+          iconPath,
+          height: size.height * .027,
+          width: size.width * .058,
+        ),
+        GestureDetector(
+          onTap: onTap as void Function()?,
+          child: Flexible(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: size.width * .034,
+                color: AppColor.grey2,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
