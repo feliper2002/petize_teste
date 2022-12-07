@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:petize_teste/modules/result/presenter/bloc/result_cubit.dart';
-import 'package:petize_teste/modules/result/presenter/bloc/states/result_state.dart';
-import 'package:petize_teste/utils/global_widgets/search_button.dart';
 import 'package:petize_teste/utils/global_widgets/search_devs_title.dart';
 import 'package:petize_teste/utils/themes/app_color.dart';
 
@@ -24,6 +22,11 @@ class _ResultPageState extends State<ResultPage> {
   final controller = Modular.get<ResultBloc>();
 
   final searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
