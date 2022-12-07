@@ -55,6 +55,7 @@ flutter:
   uses-material-design: true
 
 assets:
+    - assets/icons
     - assets/fonts/Inter-VariebleFont_slnt,wght.ttf
     - assets/fonts/Nunito-VariableFont_wght.ttf
 
