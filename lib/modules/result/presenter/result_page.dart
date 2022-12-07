@@ -63,16 +63,23 @@ class _ResultPageState extends State<ResultPage> {
               },
             ),
           ),
-          Row(
-            children: [
-              Column(
-                children: [
-                  DevInfos(size: size, user: widget.user),
-                  const ContactButton(),
-                ],
-              ),
-              const DevRepositories(),
-            ],
+          Container(
+            margin: EdgeInsets.only(
+                top: size.height * .085, left: size.width * .078),
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    DevInfos(size: size, user: widget.user),
+                    ContactButton(
+                      size: size,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                const DevRepositories(),
+              ],
+            ),
           ),
         ],
       ),

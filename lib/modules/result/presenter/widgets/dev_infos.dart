@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:petize_teste/modules/result/presenter/widgets/info_tile.dart';
 
 import '../../../../utils/themes/app_color.dart';
 import '../bloc/result_cubit.dart';
@@ -37,10 +38,8 @@ class _DevInfosState extends State<DevInfos> {
 
         if (state is SuccessResultUserState) {
           return Container(
-            height: widget.size.height * .45,
+            height: widget.size.height * .68,
             width: widget.size.width * .194,
-            margin: EdgeInsets.only(
-                top: widget.size.height * .085, left: widget.size.width * .078),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(widget.size.width * .00278),
@@ -59,7 +58,7 @@ class _DevInfosState extends State<DevInfos> {
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.blue,
-                          radius: constraints.minHeight * .052,
+                          radius: constraints.minWidth * .085,
                         ),
                         const SizedBox(width: 16),
                         Column(
@@ -84,7 +83,7 @@ class _DevInfosState extends State<DevInfos> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: constraints.minHeight * .0344),
                     Text(
                       state.user.bio,
                       style: TextStyle(
@@ -92,6 +91,31 @@ class _DevInfosState extends State<DevInfos> {
                         color: AppColor.grey2,
                       ),
                     ),
+                    InfoTile(
+                        size: constraints.biggest,
+                        iconPath: 'assets/icons/follwers.png',
+                        title: '${state.user.followers} seguidores'),
+                    InfoTile(
+                        size: constraints.biggest,
+                        iconPath: 'assets/icons/following.png',
+                        title: '${state.user.following} seguindo'),
+                    const SizedBox(height: 16),
+                    InfoTile(
+                        size: constraints.biggest,
+                        iconPath: 'assets/icons/company.png',
+                        title: state.user.company),
+                    InfoTile(
+                        size: constraints.biggest,
+                        iconPath: 'assets/icons/location.png',
+                        title: state.user.location),
+                    InfoTile(
+                        size: constraints.biggest,
+                        iconPath: 'assets/icons/blog.png',
+                        title: state.user.blog),
+                    InfoTile(
+                        size: constraints.biggest,
+                        iconPath: 'assets/icons/twitter.png',
+                        title: '@${state.user.twitterUsername}'),
                   ],
                 ),
               );
