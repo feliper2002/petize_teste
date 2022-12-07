@@ -19,8 +19,7 @@ class GetRepositoriesDatasourceImpl implements GetRepositoriesDatasource {
       List<Map<String, dynamic>> data = [];
 
       if (response.statusCode == 200) {
-        for (var e
-            in (jsonDecode(response.body) as List<Map<String, dynamic>>)) {
+        for (var e in (jsonDecode(response.body) as List)) {
           data.add(e);
         }
       }
