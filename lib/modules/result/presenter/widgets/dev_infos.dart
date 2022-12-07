@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:petize_teste/modules/result/presenter/widgets/info_tile.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../utils/themes/app_color.dart';
 import '../bloc/result_cubit.dart';
 import '../bloc/states/result_state.dart';
+import 'info_grid.dart';
 
 class DevInfos extends StatefulWidget {
   final Size size;
@@ -108,72 +108,9 @@ class _DevInfosState extends State<DevInfos> {
                   SizedBox(
                     width: widget.size.width,
                     height: 100,
-                    child: GridView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 1,
-                        crossAxisSpacing: 0.3,
-                        childAspectRatio: 5.5,
-                      ),
-                      children: [
-                        Visibility(
-                          visible: state.user.company.isNotEmpty,
-                          child: InfoTile(
-                              size: widget.size,
-                              iconPath: 'assets/icons/company.png',
-                              title: state.user.company),
-                        ),
-                        Visibility(
-                          visible: state.user.location.isNotEmpty,
-                          child: InfoTile(
-                              size: widget.size,
-                              iconPath: 'assets/icons/location.png',
-                              title: state.user.location),
-                        ),
-                        Visibility(
-                          visible: state.user.email.isNotEmpty,
-                          child: InfoTile(
-                              size: widget.size,
-                              iconPath: 'assets/icons/email.png',
-                              onTap: () async {
-                                if (await canLaunchUrl(
-                                    Uri.parse("mailto:${state.user.email}"))) {
-                                  await launchUrl(
-                                      Uri.parse("mailto:${state.user.email}"));
-                                }
-                              },
-                              title: state.user.email),
-                        ),
-                        Visibility(
-                          visible: state.user.blog.isNotEmpty,
-                          child: InfoTile(
-                              size: widget.size,
-                              iconPath: 'assets/icons/blog.png',
-                              onTap: () async {
-                                if (await canLaunchUrl(
-                                    Uri.parse(state.user.blog))) {
-                                  await launchUrl(Uri.parse(state.user.blog));
-                                }
-                              },
-                              title: state.user.blog),
-                        ),
-                        Visibility(
-                          visible: state.user.twitterUsername.isNotEmpty,
-                          child: InfoTile(
-                              size: widget.size,
-                              iconPath: 'assets/icons/twitter.png',
-                              onTap: () async {
-                                if (await canLaunchUrl(Uri.parse(
-                                    "https://twitter.com/${state.user.twitterUsername}"))) {
-                                  await launchUrl(Uri.parse(
-                                      "https://twitter.com/${state.user.twitterUsername}"));
-                                }
-                              },
-                              title: '@${state.user.twitterUsername}'),
-                        ),
-                      ],
+                    child: InfoGrid(
+                      size: widget.size,
+                      user: state.user,
                     ),
                   ),
                 ],
