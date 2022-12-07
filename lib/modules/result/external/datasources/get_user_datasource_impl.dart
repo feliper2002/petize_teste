@@ -4,6 +4,8 @@ import 'package:http/http.dart';
 import 'package:petize_teste/modules/result/infra/datasource/get_user_datasource.dart';
 import 'package:petize_teste/modules/result/infra/errors/user_failure.dart';
 
+import '../../../../utils/constants/api_base_url.dart';
+
 class GetUserDatasourceImpl implements GetUserDatasource {
   final Client client;
 
@@ -11,9 +13,8 @@ class GetUserDatasourceImpl implements GetUserDatasource {
 
   @override
   Future<Map<String, dynamic>> getUser(String user) async {
-    const baseUrl = "https://api.github.com/users/";
     try {
-      final response = await client.get(Uri.parse("$baseUrl$user"));
+      final response = await client.get(Uri.parse("$apiBaseURL$user"));
 
       Map<String, dynamic>? data;
 

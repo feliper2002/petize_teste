@@ -20,15 +20,18 @@ void main() {
     usecase = GetUserImpl(repository);
 
     fakeUser = User(
-        login: 'login',
-        name: 'name',
-        bio: 'bio',
-        twitterUsername: 'twitterUsername',
-        location: 'location',
-        blog: 'blog',
-        siteAdmin: false,
-        company: 'company',
-        email: 'email');
+      login: 'login',
+      name: 'name',
+      bio: 'bio',
+      twitterUsername: 'twitterUsername',
+      location: 'location',
+      blog: 'blog',
+      siteAdmin: false,
+      company: 'company',
+      email: 'email',
+      followers: 100,
+      following: 200,
+    );
   });
 
   test("Should return User entity by parsing user string", () async {

@@ -8,6 +8,8 @@ class User {
   final bool siteAdmin;
   final String company;
   final String email;
+  final int following;
+  final int followers;
   User({
     required this.login,
     required this.name,
@@ -18,5 +20,7 @@ class User {
     required this.siteAdmin,
     required this.company,
     required this.email,
+    required this.following,
+    required this.followers,
   });
 }

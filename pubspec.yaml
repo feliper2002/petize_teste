@@ -54,14 +54,15 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-assets:
-    - assets/fonts/Inter-VariebleFont_slnt,wght.ttf
+  assets:
+    - assets/icons/
+    - assets/fonts/Inter-VariableFont_wght.ttf
     - assets/fonts/Nunito-VariableFont_wght.ttf
 
-fonts:
-  - family: Inter
-    fonts:
-      - assets/fonts/Inter-VariebleFont_slnt,wght.ttf
-  - family: Nunito
-    fonts:
-      - assets/fonts/Nunito-VariableFont_wght.ttf
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-VariableFont_wght.ttf
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-VariableFont_wght.ttf
