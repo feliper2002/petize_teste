@@ -37,6 +37,18 @@ class _DevInfosState extends State<DevInfos> {
           );
         }
 
+        if (state is ErrorResultState) {
+          return Center(
+            child: Text(
+              state.message,
+              style: TextStyle(
+                color: AppColor.grey3,
+                fontSize: widget.size.height * .05,
+              ),
+            ),
+          );
+        }
+
         if (state is SuccessResultUserState) {
           return Container(
             padding: EdgeInsets.only(

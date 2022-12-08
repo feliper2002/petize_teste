@@ -27,7 +27,8 @@ class GetRepositoriesDatasourceImpl implements GetRepositoriesDatasource {
     } on ClientException catch (e) {
       throw GitRepositoryDataServiceFailure(e.message);
     } catch (e) {
-      throw GitRepositoryDataServiceFailure(e.toString());
+      throw GitRepositoryDataServiceFailure(
+          "Não foi possível carregar os dados dos repositórios!");
     }
   }
 }

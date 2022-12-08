@@ -25,7 +25,8 @@ class GetUserDatasourceImpl implements GetUserDatasource {
     } on ClientException catch (e) {
       throw UserDataServiceFailure(e.message);
     } catch (e) {
-      throw UserDataServiceFailure(e.toString());
+      throw UserDataServiceFailure(
+          "Não foi possível carregar os dados do usuário!");
     }
   }
 }

@@ -29,6 +29,24 @@ class _DevRepositoriesState extends State<DevRepositories> {
     return BlocBuilder(
         bloc: controller,
         builder: (context, state) {
+          if (state is ErrorResultState) {
+            return Center(
+              child: Text(
+                state.message,
+                style: TextStyle(
+                  color: AppColor.grey3,
+                  fontSize: widget.size.height * .05,
+                ),
+              ),
+            );
+          }
+          if (state is LoadingResultState) {
+            return const Center(
+                child: CircularProgressIndicator(
+              color: AppColor.purple1,
+            ));
+          }
+
           if (state is SuccessResultReposState) {
             if (state.repositories.isNotEmpty) {
               return Container(

@@ -7,7 +7,11 @@ class InitialResultState extends ResultState {}
 
 class LoadingResultState extends ResultState {}
 
-class ErrorResultState extends ResultState {}
+class ErrorResultState extends ResultState {
+  final String message;
+
+  ErrorResultState(this.message);
+}
 
 class SuccessResultUserState extends ResultState {
   final User user;
