@@ -37,8 +37,6 @@ class ResultBloc extends Cubit<ResultState> {
       (repositories) {
         repositories
             .sort((a, b) => b.stargazersCount.compareTo(a.stargazersCount));
-        repositories.sort((a, b) =>
-            DateTime.parse(b.updatedAt).compareTo(DateTime.parse(a.updatedAt)));
         emit(SuccessResultReposState(repositories));
       },
     );
