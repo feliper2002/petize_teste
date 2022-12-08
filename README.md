@@ -58,7 +58,7 @@ flutter pub run
 
 ### Instalando o APK em um disposítivo
 
-> A versão mais atualizada do APK estará disponível [nessa release]()
+> A versão mais atualizada do APK estará disponível [nessa release](https://github.com/feliper2002/petize_teste/releases/tag/v1.0.0)
 
 1. Execute em sua CLI aberta no diretório do projeto:
 ```
@@ -124,3 +124,7 @@ Neste módulo está apenas a página onde é passado o texto como argumento para
 
 Este módulo é dividido em camadas do *Clean Dart*. É aqui onde a API do GitHub é consumida através de uma comunicação via package `http` na camada **external**, onde o JSON obtido é passado para a camada **infra** e é feita a adaptação para os respectivos *models* a fim de atender ao contrato da camada de **domain**, aplicando-os às regras de negócios.
 Por fim, dentro da camada **presenter**, o Cubit (`BLoC`) é utilizado para uma classe servindo de controlador para o gerenciamento de estado dentro da aplicação ao executar os métodos implementados para obtenção dos dados do usuário do Github e seus respectivos repositórios.
+
+## 6. Download
+
+- [Release v1.0.0](https://github.com/feliper2002/petize_teste/releases/tag/v1.0.0)
