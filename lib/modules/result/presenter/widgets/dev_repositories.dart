@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:petize_teste/modules/result/presenter/bloc/result_cubit.dart';
 import 'package:petize_teste/modules/result/presenter/bloc/states/result_state.dart';
+import 'package:petize_teste/modules/result/presenter/widgets/repository_tile.dart';
 import 'package:petize_teste/utils/themes/app_color.dart';
-
-import 'package:timeago/timeago.dart' as timeago;
 
 class DevRepositories extends StatefulWidget {
   final Size size;
@@ -51,65 +50,7 @@ class _DevRepositoriesState extends State<DevRepositories> {
                   },
                   itemBuilder: (context, index) {
                     final repo = state.repositories[index];
-                    return Container(
-                      margin: EdgeInsets.symmetric(
-                          vertical: widget.size.height * .0179,
-                          horizontal: widget.size.width * .0388),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            repo.name,
-                            style: TextStyle(
-                                fontSize: widget.size.width * .04854,
-                                color: AppColor.black1,
-                                fontWeight: FontWeight.w700),
-                          ),
-                          SizedBox(height: widget.size.height * .0156),
-                          Text(
-                            repo.description,
-                            style: TextStyle(
-                                fontSize: widget.size.width * .0388,
-                                color: AppColor.grey2),
-                          ),
-                          SizedBox(height: widget.size.height * .0156),
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/icons/favorite.png",
-                                    height: widget.size.height * .027,
-                                    width: widget.size.width * .058,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    "${repo.stargazersCount}",
-                                    style: TextStyle(
-                                        fontSize: widget.size.width * .034,
-                                        color: AppColor.grey2),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    "•",
-                                    style: TextStyle(
-                                        fontSize: widget.size.width * .034,
-                                        color: AppColor.grey2),
-                                  ),
-                                  const SizedBox(width: 8),
-                                ],
-                              ),
-                              Text(
-                                "Atualizado ${timeago.format(DateTime.parse(repo.updatedAt), locale: 'ptbr')}",
-                                style: TextStyle(
-                                    fontSize: widget.size.width * .034,
-                                    color: AppColor.grey2),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
+                    return RepositoryTile(size: widget.size, repo: repo);
                   },
                 ),
               );

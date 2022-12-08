@@ -40,8 +40,10 @@ class _SearchPageState extends State<SearchPage> {
                 hintStyle:
                     const TextStyle(fontSize: 18, color: AppColor.darkGrey),
                 onFieldSubmitted: (value) async {
-                  await Modular.to
-                      .pushNamed("/result/", arguments: searchController.text);
+                  if (searchController.text.isNotEmpty) {
+                    await Modular.to.pushNamed("/result/",
+                        arguments: searchController.text);
+                  }
                 },
               ),
             ],

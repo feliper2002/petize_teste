@@ -24,6 +24,7 @@ void main() {
       description: "description",
       stargazersCount: 0,
       updatedAt: "",
+      url: "",
     );
   });
 

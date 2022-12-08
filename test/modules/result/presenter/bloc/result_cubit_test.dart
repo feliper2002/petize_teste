@@ -37,10 +37,12 @@ void main() {
       following: 200,
     );
     fakeRepo = GitRepository(
-        name: 'name',
-        description: 'description',
-        stargazersCount: 0,
-        updatedAt: 'updatedAt');
+      name: 'name',
+      description: 'description',
+      stargazersCount: 0,
+      updatedAt: 'updatedAt',
+      url: 'url',
+    );
   });
 
   blocTest<ResultBloc, ResultState>(
